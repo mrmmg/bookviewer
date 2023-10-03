@@ -87,7 +87,13 @@ class DocumentResource extends Resource
                 Tables\Columns\TextColumn::make('current_user_track')
                     ->label('Last Reading Time')
                     ->formatStateUsing(function (Document $document){
-                        return Carbon::parse($document?->current_user_track->metadata['last_reading_time'])
+                        $last_time = $document?->current_user_track->metadata['last_reading_time'];
+
+                        if($last_time === 0) {
+                            return "Not Started";
+                        }
+
+                        return Carbon::parse($last_time)
                             ->timezone('Asia/Tehran')
                             ->format('Y/m/d H:i:s');
                     }),
