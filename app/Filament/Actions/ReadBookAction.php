@@ -34,9 +34,11 @@ class ReadBookAction
     {
         $pdfjs_path = url('pdfjs/web/viewer.html');
 
+        $hashed_id = Hashids::encode($document->id);
+
         $params = array_merge([
-            'file' => url("/storage/{$document->store_path}"),
-            'hash' => Hashids::encode($document->id)
+            'file' => route('document.get', ['hash' => $hashed_id]),
+            'hash' => $hashed_id
         ], $params);
 
         $redirect_path = Str::finish(url($pdfjs_path), '?') . Arr::query($params);

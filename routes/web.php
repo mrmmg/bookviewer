@@ -14,3 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', static fn () =>redirect('/admin'));
+
+Route::get(
+    'documents/get/{hash}',
+    [\App\Http\Controllers\DocumentController::class, 'getDocument']
+)
+    ->name('document.get')
+    ->middleware('auth');
