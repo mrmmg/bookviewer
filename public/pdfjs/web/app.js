@@ -1,5 +1,6 @@
-const backend_url = "http://bookviewer.local/api/v1";
-const auth_page = backend_url.replace("/api/v1", "/admin/login");
+const base_url = window.location.protocol + "//" + window.location.hostname;
+const backend_url = base_url + "/api/v1";
+const auth_page = base_url + "/admin/login";
 const query_params = Object.fromEntries(new URLSearchParams(window.location.search));
 
 document.getElementById('spinner-container').style.display = 'flex';
