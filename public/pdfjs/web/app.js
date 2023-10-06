@@ -1,3 +1,4 @@
+//test git hooks
 const base_url = window.location.protocol + "//" + window.location.hostname;
 const backend_url = base_url + "/api/v1";
 const auth_page = base_url + "/admin/login";
