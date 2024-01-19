@@ -39,7 +39,8 @@ class DocumentResource extends Resource
                     ->preserveFilenames()
                     ->openable()
                     ->acceptedFileTypes(['application/pdf'])
-                    ->columnSpanFull(),
+                    ->columnSpanFull()
+                    ->hiddenOn(Pages\EditDocument::class),
 
                 Forms\Components\Toggle::make('is_public')
                     ->label('Is public?')
